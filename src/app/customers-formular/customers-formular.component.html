@@ -1,0 +1,28 @@
+<form [formGroup]="form" class="mx-3 mt-4 span-6">
+
+  <label>
+    <input formControlName="identification_number" class="form-control shadow rounded" placeholder="identification_number">
+  </label>
+  <br>
+
+  <label>
+    <input formControlName="customer_firstname" class="form-control shadow rounded" placeholder="customer_firstname">
+  </label>
+  <br>
+
+  <label>
+    <input formControlName="customer_lastname" class="form-control shadow rounded" placeholder="customer_lastname">
+  </label>
+  <br>
+
+  <label>
+    <input formControlName="o_number" class="form-control shadow rounded" placeholder="o_number">
+  </label>
+  <br>
+
+  <button (click)="pridaj()" *ngIf="form.value.customer_id === null" type="button" class="btn-danger rounded btn-lg shadow  font-weight-bold mr-3">PRIDAJ</button>
+
+  <button (click)="uprav()" *ngIf="form.value.customer_id !== null" type="button" class="btn-danger rounded btn-lg shadow  font-weight-bold mr-3">UPRAV</button>
+  <button (click)="zrus()" type="button" class="btn-danger rounded btn-lg shadow rounded font-weight-bold">ZRUŠ</button>
+
+</form>

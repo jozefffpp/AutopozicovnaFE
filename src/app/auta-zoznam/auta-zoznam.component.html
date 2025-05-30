@@ -1,0 +1,38 @@
+<div class="form-group mx-3 mt-3">
+  <input type="text" class="form-control" placeholder="Vyhladavanie..." [(ngModel)]="term">
+</div>
+
+<div class="mx-3">
+<div *ngIf="!auta || auta?.length === 0">
+  Zoznam áut je prázdny.
+</div>
+
+<table class="table table-hover" *ngIf="auta.length > 0">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Cena</th>
+    <th>Dvere</th>
+    <th>Osoby</th>
+    <th>Kufor</th>
+    <th>Bezpečnosť</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let auto of auta | filter:term">
+    <td>{{ auto.id }}</td>
+    <td>{{ auto.price }}</td>
+    <td>{{ auto.doors }}</td>
+    <td>{{ auto.persons }}</td>
+    <td>{{ auto.lug_boot }}</td>
+    <td>{{ auto.safety }}</td>
+    <td>
+      <button type = "button" class="btn-danger btn-md shadow rounded font-weight-bold mr-2" (click)="uprav(auto.id!)">UPRAVIŤ</button>
+      <button type = "button" class="btn-danger btn-md shadow rounded font-weight-bold" (click)="zmaz(auto.id!)">ZMAZAŤ</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+</div>
